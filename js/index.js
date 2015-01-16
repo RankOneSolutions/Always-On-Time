@@ -2,21 +2,46 @@ $(document).ready(function (){
 	updateTime();
 });
 
-function updateTime() {
-	var Today = new Date();
-	var Hour = Today.getHours();
-	var Minute = Today.getMinutes();
-	var Second = Today.getSeconds();
-	var Meridian = "AM";
-	if(Hour > 11) {
-		Meridian = "PM";
+Date.prototype.addMinutes= function(minute){
+    this.setMinutes(this.getMinutes()+minute);
+    return this;
+}
+
+
+rngr = 0;
+
+function updateTime(rngr) {
+	if (rngr){
+		var Today  = new Date().addMinutes(rngr);
+	} else {
+		var Today  = new Date();
+	}
+	var hour   	 = returnDoubleDigits(Today.getHours());
+	var minute 	 = returnDoubleDigits(Today.getMinutes());
+	var second 	 = returnDoubleDigits(Today.getSeconds());
+	var meridian = (hour < 11 ? "AM" : "PM");
+
+	$(".hour").text(hour % 12 + ": ");
+	$(".minute").text(minute + ": ");
+
+	if (second.toString().length == 1) {
+		second = "0" + second;
+	} else {
+		$(".second").text(second + " " + meridian);
 	}
 
-	$(".hour").text(Hour%12 + ": ");
-	$(".minute").text(Minute + ": ");
-	$(".second").text(Second + " " + Meridian);
+	$('.go-to-sleep-btn').on('click', function(){
+		rngr = Math.floor(Math.random() * 15) + 1;
+	})
 
-	setTimeout(function(){updateTime()},500);
+	$('.wake-up-btn').on('click', function(){
+		rngr = 0;
+	})
+		setTimeout(function(){updateTime(rngr)},500);
+}
+
+function returnDoubleDigits(str) {
+  return str.toString().length === 1 ? '0' + str : str;
 }
 
 function sleep() {
