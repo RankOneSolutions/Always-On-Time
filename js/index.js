@@ -19,7 +19,7 @@ function updateTime(rngr) {
 	var hour   	 = returnDoubleDigits(Today.getHours());
 	var minute 	 = returnDoubleDigits(Today.getMinutes());
 	var second 	 = returnDoubleDigits(Today.getSeconds());
-	var meridian = (hour < 11 ? "AM" : "PM");
+	var meridian = (hour < 11 ? "am" : "pm");
 
 	$(".hour").text(hour % 12 + ": ");
 	$(".minute").text(minute + ": ");
@@ -47,9 +47,11 @@ function returnDoubleDigits(str) {
 function sleep() {
 	$(".go-to-sleep-btn").css("display", "none");
 	$(".wake-up-btn").css("display", "inline");
+	$("body").css("background-color", "#162145");
 }
 
 function wakeUp() {
 	$(".go-to-sleep-btn").css("display", "inline");
 	$(".wake-up-btn").css("display", "none");
+	$("body").css("background-color", "#00ABA9");
 }

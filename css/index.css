@@ -2,9 +2,10 @@
 
 body {
 	color: #fff;
-	background-color: #162145;
+	background-color: #00ABA9;
 	font-family: 'Lato', sans-serif;
 	font-weight: 100;
+	-webkit-transition: background-color 2s;
 }
 
 .logo {
@@ -53,8 +54,6 @@ body {
 
 .wake-up-btn, .go-to-sleep-btn {
 	margin: 2%;
-	background-color: #fff;
-	color: #162145;
 	text-align: center;
 	text-decoration: none;
 	left: 50%;
@@ -67,10 +66,25 @@ body {
 	-webkit-transition: width 1s, color 1s, background-color 1s, left 1s, font-size 1s;
 }
 
+.go-to-sleep-btn {
+	color: #00ABA9;
+}
+
+.wake-up-btn {
+	color: #162145;
+}
+
 .wake-up-btn:hover, .go-to-sleep-btn:hover {
 	cursor: pointer;
 	width: 90%;
 	color: #fff;
 	font-size: 1.01em;
+}
+
+.go-to-sleep-btn:hover {
+	background-color: #00ABA9;
+}
+
+.wake-up-btn:hover {
 	background-color: #162145;
 }
