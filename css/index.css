@@ -24,16 +24,13 @@ body {
 
 .selector {
 	font-size: 6vw;
-	min-height: 6vw;
+	min-height: 7vw;
 	opacity: 1;
 	position: absolute;
 	text-align: center;
 	width: 50%;
 	left: 25%;
 	top: 30%;
-
-	border-right: 1px solid white;
-	border-left: 1px solid white;
 
 	transition: top 1s;
 }
@@ -53,7 +50,7 @@ body {
 	pointer-events: none;
 	position: relative;
 	text-align: left;
-	left: -37%;
+	left: -18%;
 
 	transition: opacity 1s;
 }
@@ -87,11 +84,11 @@ body {
 	outline: none;
 }
 
-.wake-up-btn, .go-to-sleep-btn {
+.wake-up, .sleep {
 	display: none;
 }
 
-.wake-up-btn, .go-to-sleep-btn, .set-alarm-btn {
+.wake-up, .sleep, .set-alarm {
 	margin: 2%;
 	text-align: center;
 	text-decoration: none;
@@ -105,26 +102,26 @@ body {
 	-webkit-transition: width 1s, color 2s, background-color 2s, left 1s, font-size 1s;
 }
 
-.go-to-sleep-btn, .set-alarm-btn {
+.sleep, .set-alarm {
 	color: #00ABA9;
 }
 
-.wake-up-btn {
+.wake-up {
 	color: #162145;
 }
 
-.wake-up-btn:hover, .go-to-sleep-btn:hover, .set-alarm-btn:hover {
+.wake-up:hover, .sleep:hover, .set-alarm:hover {
 	cursor: pointer;
 	width: 90%;
 	color: #fff;
 	font-size: 1.01em;
 }
 
-.go-to-sleep-btn:hover, .set-alarm-btn:hover {
+.sleep:hover, .set-alarm:hover {
 	background-color: #00ABA9;
 }
 
-.wake-up-btn:hover {
+.wake-up:hover {
 	background-color: #162145;
 }
 
@@ -134,7 +131,7 @@ body {
 	font-size: 6vw;
 	opacity: 0;
 	width: 50%;
-	left: 25%;
+	left: 29%;
 	top: 45%;
 
 	-webkit-transition: opacity 1s;
@@ -150,14 +147,12 @@ body {
 	display: inline;
 	font-size: 6vw;
 	text-align: right;
-	height: 6vw;
-	width: 15%;
+	height: 7vw;
+	width: 17%;
 	min-width: 8vw;
 	color: #fff;
 	background-color: transparent;
-	border-style: solid;
 	border: none;
-	border-bottom: 1px solid white;
 	font-family: 'Lato', sans-serif;
 	font-weight: 100;
 }
@@ -174,4 +169,8 @@ body {
 
 .alarm-hour {
 	margin-left: 10%;
+}
+
+input:focus {
+	outline: none;
 }

@@ -14,11 +14,8 @@
 
 <body>
 	<div class="logo"> always on time </div>
-	
-	<div class="selector"> <!-- DJ Jazzy Jake in the house -->
-		<div class="selector-text-time"> time </div>
-		<div class="selector-text-alarm"> alarm </div>
-	</div>
+	<!-- DJ Jazzy Jake in the house -->
+	<!-- Evil DJ Nemesis Augi Apocalypse just burned the house down, bitch -->
 	
 	<div class="time">
 		<div class="hour">hour</div>
@@ -27,16 +24,22 @@
 	</div>
 
 	<div class="button-wrapper">
-		<button class="set-alarm-btn btn" onclick="setAlarm()">set alarm</button>
-		<button class="wake-up-btn btn" onclick="wakeUp()">wake</button>
-		<button class="go-to-sleep-btn btn" onclick="sleep()">sleep</button>
+		<button class="set-alarm btn">set alarm</button>
+		<button class="wake-up btn">wake</button>
+		<button class="sleep btn">sleep</button>
 	</div>
 
+
 	<div class="alarm">	
-		<div class="alarm-hour"><input type="number" placeholder="12" min="1" max="12">:</div>
-		<div class="alarm-minute"><input type="number" placeholder="00" min="0" max="59">:</div>
-		<div class="alarm-second"><input type="number" placeholder="00" min="0" max="59"></div>
-		<div class="alarm-meridian" onclick="toggleMeridian()">am</div>
+		<div class="alarm-hour">
+			<input type="number" placeholder="12" min="1" max="12">:
+		</div>
+		<div class="alarm-minute">
+			<input type="number" placeholder="00" min="0" max="59">:
+	</div>
+		<div class="alarm-second">
+			<input type="number" placeholder="00" min="0" max="59">
+	</div>
 	</div>
 </body>
 
