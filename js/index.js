@@ -27,6 +27,7 @@ $(function ($) {
 		$('.set-alarm').on('click', function() { setAlarm() });
 		$('.wake-up').on('click', function() { wakeUp() });
 		$('.sleep').on('click', function() { sleep() });
+		$('.alarm-meridian').on('click', function() { toggleMeridian() });
 	}
 
 	function clock(){
@@ -56,8 +57,6 @@ $(function ($) {
   	$(".alarm").css("opacity", "1");
   	$(".time").css("opacity", "0.4");
   	$(".selector").css("top", "45.5%");
-  	$(".selector-text-alarm").css("opacity", "1");
-  	$(".selector-text-time").css("opacity", "0");
   	$(".set-alarm").css("display", "none");
   	$(".sleep").css("display", "initial");
   }
@@ -73,8 +72,18 @@ $(function ($) {
   	$(".set-alarm").css("display", "initial");
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "none");
+		$(".time").css("opacity", "1");
 
   	$("body").css("background-color", "#00ABA9");
   }
+
+	function toggleMeridian() {
+		var meridian = $(".alarm-meridian").text();
+		if(meridian == "am") {
+			$(".alarm-meridian").text("pm");
+		} else {
+			$(".alarm-meridian").text("am");
+		}
+	}
 
 });
