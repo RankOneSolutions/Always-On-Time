@@ -59,6 +59,7 @@ $(function ($) {
   	$(".selector").css("top", "45.5%");
   	$(".set-alarm").css("display", "none");
   	$(".sleep").css("display", "initial");
+  	$("#hour-input").focus();
   }
 
   function sleep() {
