@@ -73,7 +73,6 @@ $(function ($) {
   	$(".set-alarm").css("display", "initial");
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "none");
-
   	$("body").css("background-color", "#00ABA9");
   }
 
