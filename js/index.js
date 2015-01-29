@@ -17,11 +17,15 @@ $(function ($) {
 
 	function initListeners() {
 		$('.sleep').on('click', function () {
-			adjustment = Math.floor(Math.random() * 15) + 1;
+      setTimeout(function(){
+        adjustment = Math.floor(Math.random() * 15) + 1
+      }, 1800000);
 		})
 
 		$('.wake-up').on('click', function () {
-			adjustment = 0;
+      setTimeout(function(){
+  			adjustment = 0;
+      }, 1800000);
 		})
 
 		$('.set-alarm').on('click', function() { setAlarm() });
