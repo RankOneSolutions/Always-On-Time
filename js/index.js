@@ -12,7 +12,7 @@ $(function ($) {
 	initListeners();
 
 	function initTime() {
-		setInterval(function() { clock() }, 500);
+		setInterval(function() { clock(); parseAlarmInput(); }, 500);
 	}
 
 	function initListeners() {
@@ -35,7 +35,7 @@ $(function ($) {
 		$('.set-alarm').on('click', function() { setAlarm() });
 		$('.wake-up').on('click', function() { wakeUp() });
 		$('.sleep').on('click', function() { sleep() });
-		$('.alarm-meridian').on('click', function() { toggleMeridian() });
+		$('#meridian-input').on('click', function() { toggleMeridian() });
 	}
 
   function endTimeouts(){
@@ -62,6 +62,26 @@ $(function ($) {
 		timeSplitter();
 		updateTime();
 	}
+
+  function parseClockVals(alarm){
+    console.log('alarm is set to: ' + alarm)
+    console.log('time is: ' + hour + ' ' + parseInt(minute));
+    if (alarm == (hour + ' ' + parseInt(minute))){
+      console.log('alarm!!!!');
+    } 
+  }
+
+  function parseAlarmInput(){
+    var alarm_hour = parseInt($('#hour-input').val());
+    var alarm_minute = parseInt($('#minute-input').val());
+    var alarm_meridian = $('#meridian-input').text().trim();
+
+    if (alarm_meridian == 'pm') {
+      alarm_hour += 12;
+    }
+    var alarm = alarm_hour + ' ' + alarm_minute;
+    return parseClockVals(alarm);
+  }
 
 	function timeSplitter() {
 		Today  = new Date().addMinutes(adjustment);
@@ -107,11 +127,11 @@ $(function ($) {
   }
 
 	function toggleMeridian() {
-		var meridian = $(".alarm-meridian").text();
+		var meridian = $("#meridian-input").text();
 		if(meridian == "am") {
-			$(".alarm-meridian").text("pm");
+			$("#meridian-input").text("pm");
 		} else {
-			$(".alarm-meridian").text("am");
+			$("#meridian-input").text("am");
 		}
 	}
 
