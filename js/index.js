@@ -17,22 +17,46 @@ $(function ($) {
 
 	function initListeners() {
 		$('.sleep').on('click', function () {
-      setTimeout(function(){
-        adjustment = Math.floor(Math.random() * 15) + 1
-      }, 1800000);
-		})
+      $.when(
+        endTimeouts()
+      ).then(
+        randomAdjustment()
+      );
+		});
 
 		$('.wake-up').on('click', function () {
-      setTimeout(function(){
-  			adjustment = 0;
-      }, 1800000);
-		})
+      $.when(
+        endTimeouts()
+      ).then(
+        resetAdjustment()
+      );
+		});
 
 		$('.set-alarm').on('click', function() { setAlarm() });
 		$('.wake-up').on('click', function() { wakeUp() });
 		$('.sleep').on('click', function() { sleep() });
 		$('.alarm-meridian').on('click', function() { toggleMeridian() });
 	}
+
+  function endTimeouts(){
+    if (typeof timeout1 != 'undefined'){
+      clearTimeout(timeout1);
+    }else if (typeof timeout2 != 'undefined'){
+      clearTimeout(timeout2);
+    }
+  }
+
+  function randomAdjustment(){
+    timeout1 = setTimeout(function(){
+      adjustment = Math.floor(Math.random() * 15) + 1;
+    }, 3000);
+  }
+
+  function resetAdjustment(){
+    timeout2 = setTimeout(function(){
+      adjustment = 0;
+    }, 3000);
+  }
 
 	function clock(){
 		timeSplitter();
