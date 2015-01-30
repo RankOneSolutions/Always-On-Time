@@ -97,8 +97,8 @@ body {
 	position: absolute;
 	font-size: 6vw;
 	opacity: 0;
-	width: 50%;
-	left: 29%;
+	width: 30%;
+	left: 35%;
 	top: 65%;
 
 	-webkit-transition: opacity 1s;
@@ -121,7 +121,7 @@ body {
 	font-size: 6vw;
 	text-align: right;
 	height: 7vw;
-	width: 33%;
+	width: 25%;
 	min-width: 8vw;
 	color: #fff;
 	background-color: transparent;
@@ -139,18 +139,28 @@ body {
 	border-bottom: 1px solid red;
 }
 
-.alarm-meridian:hover {
+#meridian-input {
+	-webkit-transition: color 0.4s;
+	transition: color 0.4s;
+}
+
+#meridian-input:hover {
 	cursor: pointer;
 	color: red;
+}
+
+.uneditable {
+	pointer-events: none;
 }
 
 .alarm-label {
 	position: absolute;
 	display: block;
+	text-align: center;
 	font-size: 2vw;
 	left: 0%;
 	top: 100%;
-	width: 22%;
+	width: 100%;
 }
 
 ::-webkit-input-placeholder {

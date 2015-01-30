@@ -68,7 +68,7 @@ $(function ($) {
     console.log('time is: ' + hour + ' ' + parseInt(minute));
     if (alarm == (hour + ' ' + parseInt(minute))){
       console.log('alarm!!!!');
-    } 
+    }
   }
 
   function parseAlarmInput(){
@@ -114,6 +114,9 @@ $(function ($) {
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "initial");
   	$("body").css("background-color", "#162145");
+		$(".alarm-hour").toggleClass("uneditable");
+		$(".alarm-minute").toggleClass("uneditable");
+		$("#meridian-input").toggleClass("uneditable");
   }
 
   function wakeUp() {
@@ -122,6 +125,9 @@ $(function ($) {
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "none");
 		$(".time").css("opacity", "1");
+		$(".alarm-hour").toggleClass("uneditable");
+		$(".alarm-minute").toggleClass("uneditable");
+		$("#meridian-input").toggleClass("uneditable");
 
   	$("body").css("background-color", "#00ABA9");
   }
