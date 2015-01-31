@@ -32,6 +32,18 @@ $(function ($) {
       );
 		});
 
+		$("#hour-input, #minute-input").on('input', function() {
+			var hour = $("#hour-input").val();
+			var minute = $("#minute-input").val();
+
+			//there's gotta be a better way to write these conditionals. Help, Augustine.
+			if(hour < 13 && hour > 0 && minute > -1 && minute < 60) {
+				$(".sleep").removeClass("unclickable faded");
+			} else {
+				$(".sleep").addClass("unclickable faded");
+			}
+		});
+
 		$('.set-alarm').on('click', function() { setAlarm() });
 		$('.wake-up').on('click', function() { wakeUp() });
 		$('.sleep').on('click', function() { sleep() });
@@ -91,8 +103,8 @@ $(function ($) {
 	}
 
 	function updateTime() {
-		$(".hour").text(hour % 12 + ": ");
-		$(".minute").text(minute  + ": ");
+		$(".hour").text(hour % 12 + " : ");
+		$(".minute").text(minute  + " : ");
 		$(".second").text(second  + " ");
 	}
 
@@ -114,9 +126,9 @@ $(function ($) {
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "initial");
   	$("body").css("background-color", "#162145");
-		$(".alarm-hour").toggleClass("uneditable");
-		$(".alarm-minute").toggleClass("uneditable");
-		$("#meridian-input").toggleClass("uneditable");
+		$(".alarm-hour").toggleClass("unclickable");
+		$(".alarm-minute").toggleClass("unclickable");
+		$("#meridian-input").toggleClass("unclickable");
   }
 
   function wakeUp() {
@@ -125,9 +137,9 @@ $(function ($) {
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "none");
 		$(".time").css("opacity", "1");
-		$(".alarm-hour").toggleClass("uneditable");
-		$(".alarm-minute").toggleClass("uneditable");
-		$("#meridian-input").toggleClass("uneditable");
+		$(".alarm-hour").toggleClass("unclickable");
+		$(".alarm-minute").toggleClass("unclickable");
+		$("#meridian-input").toggleClass("unclickable");
 
   	$("body").css("background-color", "#00ABA9");
   }
