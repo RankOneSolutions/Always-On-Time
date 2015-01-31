@@ -71,7 +71,6 @@ $(function ($) {
         $('.logo').text('it is time! awake!');
     } else {
         $('.logo').text('always on time');
-    }
   }
 
   function parseAlarmInput(){
@@ -94,8 +93,8 @@ $(function ($) {
 	}
 
 	function updateTime() {
-		$(".hour").text(hour % 12 + ": ");
-		$(".minute").text(minute  + ": ");
+		$(".hour").text(hour % 12 + " : ");
+		$(".minute").text(minute  + " : ");
 		$(".second").text(second  + " ");
 	}
 
@@ -117,6 +116,9 @@ $(function ($) {
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "initial");
   	$("body").css("background-color", "#162145");
+		$(".alarm-hour").toggleClass("unclickable");
+		$(".alarm-minute").toggleClass("unclickable");
+		$("#meridian-input").toggleClass("unclickable");
   }
 
   function wakeUp() {
@@ -125,6 +127,9 @@ $(function ($) {
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "none");
 		$(".time").css("opacity", "1");
+		$(".alarm-hour").toggleClass("unclickable");
+		$(".alarm-minute").toggleClass("unclickable");
+		$("#meridian-input").toggleClass("unclickable");
 
   	$("body").css("background-color", "#00ABA9");
   }
