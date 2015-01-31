@@ -10,7 +10,6 @@ adjustment = 0;
 $(function ($) {
 	initTime();
 	initListeners();
-
 	function initTime() {
 		setInterval(function() { clock(); parseAlarmInput(); }, 500);
 	}
@@ -49,13 +48,13 @@ $(function ($) {
   function randomAdjustment(){
     timeout1 = setTimeout(function(){
       adjustment = Math.floor(Math.random() * 15) + 1;
-    }, 3000);
+    }, 20000);
   }
 
   function resetAdjustment(){
     timeout2 = setTimeout(function(){
       adjustment = 0;
-    }, 3000);
+    }, 20000);
   }
 
 	function clock(){
@@ -64,11 +63,15 @@ $(function ($) {
 	}
 
   function parseClockVals(alarm){
-    console.log('alarm is set to: ' + alarm)
-    console.log('time is: ' + hour + ' ' + parseInt(minute));
-    if (alarm == (hour + ' ' + parseInt(minute))){
-      console.log('alarm!!!!');
-    } 
+    var timeInt = parseInt(hour) + ' ' + parseInt(minute);
+    var sound = new Audio('alarm.wav');
+
+    if (alarm == timeInt){
+        sound.play();
+        $('.logo').text('it is time! awake!');
+    } else {
+        $('.logo').text('always on time');
+    }
   }
 
   function parseAlarmInput(){
