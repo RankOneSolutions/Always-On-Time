@@ -113,6 +113,10 @@ $(function ($) {
   }
 
   function sleep() {
+    minute = $("#minute-input").val();
+    if(minute.length < 2) {
+      $("#minute-input").val("0" + minute);
+    }
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "initial");
   	$("body").css("background-color", "#162145");
@@ -122,6 +126,7 @@ $(function ($) {
   }
 
   function wakeUp() {
+    $(".sleep").css("display", "none");
   	$(".alarm").css("opacity", "0");
   	$(".set-alarm").css("display", "initial");
   	$(".sleep").css("display", "none");
