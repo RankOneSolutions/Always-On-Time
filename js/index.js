@@ -72,6 +72,7 @@ $(function ($) {
     } else {
         $('.logo').text('always on time');
   }
+}
 
   function parseAlarmInput(){
     var alarm_hour = parseInt($('#hour-input').val());
