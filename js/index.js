@@ -32,11 +32,11 @@ $(function ($) {
 		});
 
     $("#hour-input, #minute-input").on('input', function() {
-      var hour = $("#hour-input").val();
-      var minute = $("#minute-input").val();
+      var inputHour = $("#hour-input").val();
+      var inputMinute = $("#minute-input").val();
 
       //there's gotta be a better way to write these conditionals. Help, Augustine.
-      if(hour != "" && minute != "" && hour < 13 && hour > 0 && minute > -1 && minute < 60) {
+      if(inputHour != "" && inputMinute != "" && inputHour < 13 && inputHour > 0 && inputMinute > -1 && inputMinute < 60) {
         $(".sleep").removeClass("unclickable faded");
       } else {
         $(".sleep").addClass("unclickable faded");
