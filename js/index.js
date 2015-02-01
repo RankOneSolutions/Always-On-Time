@@ -4,7 +4,8 @@ Date.prototype.addMinutes= function(minute) {
 	return this;
 }
 
-//this is the random addition to the time, in minutes
+//this is the random addition to the time, in minutes.
+//it is set by randomAdjustment(), and resetAdjustment().
 adjustment = 0;
 
 $(function ($) {
@@ -18,18 +19,18 @@ $(function ($) {
 		$('.sleep').on('click', function () {
       $.when(
         endTimeouts()
-      ).then(
+        ).then(
         randomAdjustment()
-      );
-		});
+        );
+      });
 
 		$('.wake-up').on('click', function () {
       $.when(
         endTimeouts()
-      ).then(
+        ).then(
         resetAdjustment()
-      );
-		});
+        );
+      });
 
 		$('.set-alarm').on('click', function() { setAlarm() });
 		$('.wake-up').on('click', function() { wakeUp() });
@@ -57,20 +58,21 @@ $(function ($) {
     }, 20000);
   }
 
-	function clock(){
-		timeSplitter();
-		updateTime();
-	}
+  function clock(){
+    timeSplitter();
+    updateTime();
+  }
 
   function parseClockVals(alarm){
     var timeInt = parseInt(hour) + ' ' + parseInt(minute);
     var sound = new Audio('alarm.wav');
 
     if (alarm == timeInt){
-        sound.play();
-        $('.logo').text('it is time! awake!');
+      sound.play();
+      $('.logo').text('it is time! awake!');
     } else {
-        $('.logo').text('always on time');
+      $('.logo').text('always on time');
+    }
   }
 
   function parseAlarmInput(){
@@ -85,40 +87,42 @@ $(function ($) {
     return parseClockVals(alarm);
   }
 
-	function timeSplitter() {
-		Today  = new Date().addMinutes(adjustment);
-		hour   = enforceDoubleDigits(Today.getHours());
-		minute = enforceDoubleDigits(Today.getMinutes());
-		second = enforceDoubleDigits(Today.getSeconds());
-	}
+  function timeSplitter() {
+    Today  = new Date().addMinutes(adjustment);
+    hour   = enforceDoubleDigits(Today.getHours());
+    minute = enforceDoubleDigits(Today.getMinutes());
+    second = enforceDoubleDigits(Today.getSeconds());
+  }
 
-	function updateTime() {
-		$(".hour").text(hour % 12 + " : ");
-		$(".minute").text(minute  + " : ");
-		$(".second").text(second  + " ");
-	}
+  function updateTime() {
+    $(".hour").text(hour % 12 + " : ");
+    $(".minute").text(minute  + " : ");
+    $(".second").text(second  + " ");
+  }
 
-  //convert single digits to double digit format, 5 becomes 05.
+  //converts single digits to double digit format, 5 becomes 05.
   function enforceDoubleDigits(str) {
   	return str.toString().length === 1 ? '0' + str : str;
   }
 
+  //TODO: add keydown functionality
+  //tie button to enter and spacebar
   function setAlarm() {
-  	$(".alarm").css("opacity", "1");
-  	$(".time").css("opacity", "0.4");
-  	$(".selector").css("top", "45.5%");
-  	$(".set-alarm").css("display", "none");
-  	$(".sleep").css("display", "initial");
-  	$("#hour-input").focus();
+    $(".alarm").css("opacity", "1");
+    $(".time").css("opacity", "0.4");
+    $(".selector").css("top", "45.5%");
+    $(".set-alarm").css("display", "none");
+    $(".sleep").css("display", "initial");
+    $("#hour-input").focus();
   }
 
   function sleep() {
-  	$(".sleep").css("display", "none");
-  	$(".wake-up").css("display", "initial");
-  	$("body").css("background-color", "#162145");
-		$(".alarm-hour").toggleClass("unclickable");
-		$(".alarm-minute").toggleClass("unclickable");
-		$("#meridian-input").toggleClass("unclickable");
+    $(".sleep").css("display", "none");
+    $(".wake-up").css("display", "initial");
+    $("body").css("background-color", "#162145");
+    $(".alarm-hour").toggleClass("unclickable");
+    $(".alarm-minute").toggleClass("unclickable");
+    $("#meridian-input").toggleClass("unclickable");
   }
 
   function wakeUp() {
@@ -126,21 +130,21 @@ $(function ($) {
   	$(".set-alarm").css("display", "initial");
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "none");
-		$(".time").css("opacity", "1");
-		$(".alarm-hour").toggleClass("unclickable");
-		$(".alarm-minute").toggleClass("unclickable");
-		$("#meridian-input").toggleClass("unclickable");
-
-  	$("body").css("background-color", "#00ABA9");
+    $(".time").css("opacity", "1");
+    $(".alarm-hour").text("");
+    $(".alarm-minute").text("");
+    $(".alarm-hour").toggleClass("unclickable");
+    $(".alarm-minute").toggleClass("unclickable");
+    $("#meridian-input").toggleClass("unclickable");
+    $("body").css("background-color", "#00ABA9");
   }
 
-	function toggleMeridian() {
-		var meridian = $("#meridian-input").text();
-		if(meridian == "am") {
-			$("#meridian-input").text("pm");
-		} else {
-			$("#meridian-input").text("am");
-		}
-	}
-
+  function toggleMeridian() {
+    var meridian = $("#meridian-input").text();
+    if(meridian == "am") {
+     $("#meridian-input").text("pm");
+   } else {
+     $("#meridian-input").text("am");
+   }
+ }
 });
