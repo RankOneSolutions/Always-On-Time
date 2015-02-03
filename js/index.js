@@ -126,9 +126,16 @@ $(function ($) {
     $(".set-alarm").css("display", "none");
     $(".sleep").css("display", "initial");
     $("#hour-input").focus();
+    $(".alarm-label").removeClass("hide");
+    $("input").css("border-bottom", "1px solid white");
+    $("#hour-input").val("");
+    $("#minute-input").val("");
   }
 
   function sleep() {
+    $(".alarm-label").toggleClass("hide");
+    $(".alarm-set-for").toggleClass("hide");
+    $("input").css("border-bottom", "none");
     $(".sleep").css("display", "none");
     $(".wake-up").css("display", "initial");
     $("body").css("background-color", "#162145");
@@ -138,13 +145,13 @@ $(function ($) {
   }
 
   function wakeUp() {
+    $(".alarm-set-for").toggleClass("hide");
+    $(".sleep").addClass("unclickable faded");
   	$(".alarm").css("opacity", "0");
   	$(".set-alarm").css("display", "initial");
   	$(".sleep").css("display", "none");
   	$(".wake-up").css("display", "none");
     $(".time").css("opacity", "1");
-    $("#hour-input").val("");
-    $("#minute-input").val("");
     $(".alarm-hour").toggleClass("unclickable");
     $(".alarm-minute").toggleClass("unclickable");
     $("#meridian-input").toggleClass("unclickable");
