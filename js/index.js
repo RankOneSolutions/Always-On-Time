@@ -44,11 +44,12 @@ $(function ($) {
       }
     });
 
-		$('.set-alarm').on('click', function() { setAlarm() });
-		$('.wake-up').on('click', function() { wakeUp() });
-		$('.sleep').on('click', function() { sleep() });
-		$('#meridian-input').on('click', function() { toggleMeridian() });
-	}
+    $('.set-alarm').on('click', function() { setAlarm() });
+    $('.wake-up').on('click', function() { wakeUp() });
+    $('.sleep').on('click', function() { sleep() });
+    $('#meridian-input').on('click', function() { toggleMeridian() });
+    $('.question-mark-wrapper, .about-close-x').on('click', function() { aboutToggle() });
+  }
 
   function endTimeouts(){
     if (typeof timeout1 != 'undefined'){
@@ -138,7 +139,7 @@ $(function ($) {
     $("input").css("border-bottom", "none");
     $(".sleep").css("display", "none");
     $(".wake-up").css("display", "initial");
-    $("body").css("background-color", "#162145");
+    $("body").addClass("darken");
     $(".alarm-hour").toggleClass("unclickable");
     $(".alarm-minute").toggleClass("unclickable");
     $("#meridian-input").toggleClass("unclickable");
@@ -147,15 +148,15 @@ $(function ($) {
   function wakeUp() {
     $(".alarm-set-for").toggleClass("hide");
     $(".sleep").addClass("unclickable faded");
-  	$(".alarm").css("opacity", "0");
-  	$(".set-alarm").css("display", "initial");
-  	$(".sleep").css("display", "none");
-  	$(".wake-up").css("display", "none");
+    $(".alarm").css("opacity", "0");
+    $(".set-alarm").css("display", "initial");
+    $(".sleep").css("display", "none");
+    $(".wake-up").css("display", "none");
     $(".time").css("opacity", "1");
     $(".alarm-hour").toggleClass("unclickable");
     $(".alarm-minute").toggleClass("unclickable");
     $("#meridian-input").toggleClass("unclickable");
-    $("body").css("background-color", "#00ABA9");
+    $("body").removeClass("darken");
   }
 
   function toggleMeridian() {
@@ -165,5 +166,12 @@ $(function ($) {
    } else {
      $("#meridian-input").text("am");
    }
- }
+  }
+
+  function aboutToggle() {
+    $(".about").toggleClass("enbiggen");
+    $(".content-wrapper").toggleClass("unclickable hide");
+    $("body").toggleClass("about-darken");
+    $(".question-mark-wrapper, .about-close-x, .about-header").toggleClass("hide");
+  }
 });

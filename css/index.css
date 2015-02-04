@@ -5,7 +5,7 @@ body {
 	background-color: #00ABA9;
 	font-family: 'Lato', sans-serif;
 	font-weight: 100;
-	-webkit-transition: background-color 2s;
+	-webkit-transition: background-color 0.4s;
 
 	-webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -13,6 +13,64 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.about, .question-mark-wrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 5vw;
+	width: 5vw;
+	font-weight: 100;
+
+	-webkit-transition: height 0.4s, width 0.4s, left 0.4s, top 0.4s, background-color 0.4s;
+	transition: height 0.4s, width 0.4s, left 0.4s, top 0.4s, background-color 0.4s;
+}
+
+.question-mark-wrapper, .about-close-x:hover{
+	cursor: pointer;
+}
+
+.about-close-x {
+	position: absolute;
+	height: 5vw;
+	width: 5vw;
+	top: 0;
+	right: 0;
+	color: #00ABA9;
+	background-color: #fff;
+	text-align: center;
+	font-size: 3.7vw;
+}
+
+.about-header {
+	height: 5vw;
+	text-align: center;
+	font-size: 3.7vw;
+	color: #00ABA9;
+	background-color: #fff;
+}
+
+.enbiggen {
+	height: 75%;
+	width: 70%;
+	left: 15%;
+	top: 7%;
+	background-color: #00ABA9;
+}
+
+.question-mark-wrapper {
+	text-align: center;
+	font-size: 3.7vw;
+	/* color: #00ABA9;
+	background-color: #fff; */
+	-webkit-transition: opacity 0.4s;
+	transition: opacity 0.4s;
+}
+
+.content-wrapper {
+	-webkit-transition: opacity 0.4s;
+	transition: opacity 0.4s;
 }
 
 .logo {
@@ -37,6 +95,7 @@ body {
 	left: 25%;
 	top: 30%;
 
+	-webkit-transition: opacity 1s;
 	transition: opacity 1s;
 }
 
@@ -181,6 +240,14 @@ body {
 
 .hide {
 	opacity: 0;
+}
+
+.about-darken {
+	background-color: #005f5d;
+}
+
+.darken {
+	background-color: #162145;
 }
 
 .alarm-label {
