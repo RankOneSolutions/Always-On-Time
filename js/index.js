@@ -44,6 +44,8 @@ $(function ($) {
       }
     });
 
+    $('.question-mark').on('click', function() { openAbout() });
+    $('.close-chevron').on('click', function() { closeAbout() });
 		$('.set-alarm').on('click', function() { setAlarm() });
 		$('.wake-up').on('click', function() { wakeUp() });
 		$('.sleep').on('click', function() { sleep() });
@@ -81,9 +83,9 @@ $(function ($) {
 
     if (alarm == timeInt){
       sound.play();
-      $('.logo').text('it is time! awake!');
+      $('#main-header').text('it is time! awake!');
     } else {
-      $('.logo').text('always on time');
+      $('#main-header').text('always on time');
     }
   }
 
@@ -119,6 +121,16 @@ $(function ($) {
 
   //TODO: add keydown functionality
   //tie button to enter and spacebar
+  function openAbout() {
+    $(".main-page").css("top", "-100vh");
+    $(".about-page").css("top", "0vh");
+  }
+
+  function closeAbout() {
+    $(".main-page").css("top", "0vh");
+    $(".about-page").css("top", "100vh");
+  }
+
   function setAlarm() {
     $(".alarm").css("opacity", "1");
     $(".time").css("opacity", "0.4");
