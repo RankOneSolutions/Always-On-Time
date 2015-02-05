@@ -44,11 +44,18 @@ body {
 .question-mark, .close-chevron {
 	position: absolute;
 	top: 0;
-	left: 0;
 	width: 5vw;
 	height: 5vw;
 	text-align: center;
 	font-size: 3.7vw;
+}
+
+.question-mark {
+	right: 0;
+}
+
+.close-chevron {
+	left: 0;
 }
 
 .question-mark:hover, .close-chevron {
