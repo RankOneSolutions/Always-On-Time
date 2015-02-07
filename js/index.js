@@ -81,7 +81,7 @@ $(function ($) {
     var timeInt = parseInt(hour) + ' ' + parseInt(minute);
     var sound = new Audio('alarm.wav');
 
-    if (alarm == timeInt){
+    if (alarm == timeInt && $(".set-alarm").css("display") != "inline-block"){
       sound.play();
       $('#main-header').text('it is time! awake!');
     } else {
@@ -96,6 +96,8 @@ $(function ($) {
 
     if (alarm_meridian == 'pm') {
       alarm_hour += 12;
+    } else if (alarm_meridian == 'am' && alarm_hour == 12) {
+      alarm_hour = 0;
     }
     var alarm = alarm_hour + ' ' + alarm_minute;
     return parseClockVals(alarm);
@@ -109,7 +111,12 @@ $(function ($) {
   }
 
   function updateTime() {
-    $(".hour").text(hour % 12 + " : ");
+    if (hour % 12 == 0){
+      hour_string = "12";
+    } else {
+      hour_string = hour % 12;
+    }
+    $(".hour").text(hour_string + " : ");
     $(".minute").text(minute  + " : ");
     $(".second").text(second  + " ");
   }
@@ -119,18 +126,18 @@ $(function ($) {
   	return str.toString().length === 1 ? '0' + str : str;
   }
 
-  //TODO: add keydown functionality
-  //tie button to enter and spacebar
   function openAbout() {
-    $(".main-page").css("left", "-100vw");
-    $(".about-page").css("left", "0vw");
+    $(".main-page").css("top", "-100vh");
+    $(".about-page").css("top", "0vh");
   }
 
   function closeAbout() {
-    $(".main-page").css("left", "0vw");
-    $(".about-page").css("left", "100vw");
+    $(".main-page").css("top", "0vh");
+    $(".about-page").css("top", "100vh");
   }
 
+  //TODO: add keydown functionality
+  //tie button to enter and spacebar
   function setAlarm() {
     $(".alarm").css("opacity", "1");
     $(".time").css("opacity", "0.4");
