@@ -127,13 +127,13 @@ $(function ($) {
   }
 
   function openAbout() {
-    $(".main-page").css("top", "-100vh");
-    $(".about-page").css("top", "0vh");
+    $(".main-page").css("left", "-100vw");
+    $(".about-page").css("left", "0vw");
   }
 
   function closeAbout() {
-    $(".main-page").css("top", "0vh");
-    $(".about-page").css("top", "100vh");
+    $(".main-page").css("left", "0vw");
+    $(".about-page").css("left", "100vw");
   }
 
   //TODO: add keydown functionality
