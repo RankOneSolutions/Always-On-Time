@@ -71,6 +71,15 @@ body {
 	font-size: 5vw;
 }
 
+.about-container {
+	width: 33%;
+	margin: 0 auto;
+}
+
+.about-byline a{
+	color: orangered;
+}
+
 .time, .hour, .minute, .second {
 	display: inline;
 }
