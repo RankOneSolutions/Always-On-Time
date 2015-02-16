@@ -11,6 +11,8 @@ adjustment = 0;
 $(function ($) {
 	initTime();
 	initListeners();
+  $("#meridian-input").text("am");
+  
 	function initTime() {
 		setInterval(function() { clock(); parseAlarmInput(); }, 500);
 	}
