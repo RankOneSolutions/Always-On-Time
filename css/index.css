@@ -6,6 +6,8 @@ body {
 	font-family: 'Lato', sans-serif;
 	font-weight: 100;
 	-webkit-transition: background-color 2s;
+	transition: background-color 2s;
+	-moz-transition: background-color 2s;
 	position: fixed;
 	margin: 0;
 	overflow: hidden;
@@ -27,6 +29,7 @@ body {
 
 	-webkit-transition: left 0.3s;
 	transition: left 0.3s;
+	-moz-transition: left 0.3s;
 }
 
 .about-page {
@@ -39,6 +42,7 @@ body {
 
 	-webkit-transition: left 0.3s;
 	transition: left 0.3s;
+	-moz-transition: left 0.3s;
 }
 
 .question-mark, .close-chevron {
@@ -93,7 +97,9 @@ body {
 	left: 25%;
 	top: 30%;
 
+	-webkit-transition: opacity 1s;
 	transition: opacity 1s;
+	-moz-transition: opacity 1s;
 }
 
 .button-wrapper {
@@ -130,6 +136,8 @@ body {
 	border: 1px solid #fff;
 
 	-webkit-transition: width 0.5s, color 0.5s, background-color 0.5s, left 0.5s, font-size 0.5s, opacity 0.5s;
+	transition: width 0.5s, color 0.5s, background-color 0.5s, left 0.5s, font-size 0.5s, opacity 0.5s;
+	-moz-transition: width 0.5s, color 0.5s, background-color 0.5s, left 0.5s, font-size 0.5s, opacity 0.5s;
 }
 
 .sleep {
@@ -168,6 +176,7 @@ body {
 
 	-webkit-transition: opacity 0.4s;
 	transition: opacity 0.4s;
+	-moz-transition: opacity 0.4s;
 }
 
 .alarm {
@@ -180,6 +189,8 @@ body {
 	top: 65%;
 
 	-webkit-transition: opacity 1s;
+	transition: opacity 1s;
+	-moz-transition: opacity 1s;
 }
 
 .alarm div {
@@ -190,7 +201,9 @@ body {
 .alarm-hour, .alarm-minute, .alarm-second, .alarm-meridian {
 	position: relative;
 	margin: 1%;
+	-webkit-transition: color 0.4s;
 	transition: color 0.4s;
+	-moz-transition: color 0.4s;
 }
 
 .alarm-hour input, .alarm-minute input,
@@ -208,7 +221,9 @@ body {
 	font-weight: 100;
 	border-bottom: 1px solid white;
 
+	-wekit-transition: border 0.4s;
 	transition: border 0.4s;
+	-moz-transition: border 0.4s;
 }
 
 .alarm-hour input:hover, .alarm-minute input:hover,
@@ -220,6 +235,7 @@ body {
 #meridian-input {
 	-webkit-transition: color 0.4s;
 	transition: color 0.4s;
+	-moz-transition: color 0.4s;
 }
 
 #meridian-input:hover {
@@ -250,6 +266,7 @@ body {
 
 	-webkit-transition: opacity 0.4s;
 	transition: opacity 0.4s;
+	-moz-transition: opacity 0.4s;
 }
 
 ::-webkit-input-placeholder {
